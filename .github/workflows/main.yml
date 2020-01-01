@@ -5,7 +5,7 @@ on:
   push:
     types: do-something
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '60 * * * *'
 
 jobs:
   build:
