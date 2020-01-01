@@ -14,4 +14,4 @@ jobs:
     steps:
 
       - name: Do Something
-        run: Get-ChildItem
+        run: Get-ChildItem -Name | ForEach-Object {echo $_}
