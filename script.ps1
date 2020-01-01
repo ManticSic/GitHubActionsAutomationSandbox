@@ -1,6 +1,7 @@
 function Test-Function
 {
-    Write-Output "Run funtction"
+    $location = Get-Location
+    Write-Output $location.Path
 }
 
 Test-Function
