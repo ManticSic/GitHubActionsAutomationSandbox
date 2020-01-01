@@ -1,21 +1,14 @@
-name: Scheduled Job
+name: Do Something That Needs Scheduled
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron:  '*/5 * * * *'
 
 jobs:
   build:
-
-    runs-on: [windows]
-
+    name: Run Some Scheduled Thing
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    
-    - name: Run a one-line script
-      run: echo Hello, world!
-    
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+
+      - name: Do Something
+        run: echo Doing Something...
