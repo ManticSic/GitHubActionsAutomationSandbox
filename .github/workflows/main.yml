@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     name: Run Some Scheduled Thing
-    runs-on: windows
+    runs-on: windows-latest
     steps:
 
       - name: Do Something
