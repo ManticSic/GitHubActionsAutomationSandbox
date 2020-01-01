@@ -12,6 +12,7 @@ jobs:
     name: Run Some Scheduled Thing
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v1
 
       - name: Do Something
         run: Get-ChildItem -Name | ForEach-Object {Write-Output $_}
