@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v1
         with:
           ref: 'master'
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Checkout master
         run: git checkout master
@@ -50,4 +51,7 @@ jobs:
           git commit -a -m "Commit Message" --author="GitHub Actions<actions@github.com>"
           
       - name: Git Push
-        run: git remote -v
+        if: success()
+        run: |
+          echo '${{ secrets.GITHUB_TOKEN }}'
+          git remote -v
