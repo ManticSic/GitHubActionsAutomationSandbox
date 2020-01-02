@@ -44,9 +44,12 @@ jobs:
 
       - name: Commit
         if: success()
-        uses: zwaldowski/git-commit-action@v1
+        uses: EndBug/add-and-commit@v2
         with:
+          author_name: 'GitHub Actions'
+          author_email: 'actions@github.com'
           commit_message: 'Nightly Update'
+          path: '.'
       
       - name: Push
         if: success()
