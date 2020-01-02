@@ -44,22 +44,9 @@ jobs:
 
       - name: Commit
         if: success()
-        run: |
-          echo '1 ###'
-          git status
-          echo '2 ###'
-          git add .\build\nightly.rev
-          echo '3 ###'
-          git status
-          echo '4 ###'
-          git add .\build\demo.nuspec
-          echo '5 ###'
-          git status
-          echo '6 ###'
-          git commit -m "Nightly Update"
-          echo '7  ###'
-          git status
-          echo '8 ###'
+        uses: zwaldowski/git-commit-action@v1
+        with:
+          commit_message: 'Nightly Update'
       
       - name: Push
         if: success()
