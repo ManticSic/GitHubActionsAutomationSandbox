@@ -42,9 +42,9 @@ jobs:
         if: success()
         run: .\build\increment-version.ps1
 
-      - name: Commit
+      - name: Add & Commit
         if: success()
-        uses: EndBug/add-and-commit@v2
+        uses: EndBug/add-and-commit@v2.3.2
         with:
           commit_message: 'Nightly Update'
           path: '.'
