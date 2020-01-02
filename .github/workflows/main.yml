@@ -44,8 +44,4 @@ jobs:
 
       - name: Add & Commit
         if: success()
-        uses: github-actions-x/commit@v2.4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'master'
-          commit-message: 'publish'
+        run: git commit -am "Commit Message"
