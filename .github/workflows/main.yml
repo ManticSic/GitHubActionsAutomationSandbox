@@ -13,6 +13,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
+        with:
+          ref: 'master'
         
       - name: Precondition
         run: .\build\precodition.ps1
