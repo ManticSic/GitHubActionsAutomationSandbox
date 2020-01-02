@@ -46,8 +46,6 @@ jobs:
         if: success()
         uses: EndBug/add-and-commit@v2
         with:
-          author_name: 'GitHub Actions'
-          author_email: 'actions@github.com'
           commit_message: 'Nightly Update'
           path: '.'
         env:
