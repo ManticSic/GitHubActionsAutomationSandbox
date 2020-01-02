@@ -45,9 +45,13 @@ jobs:
       - name: Commit
         if: success()
         run: |
+          git status
           git add .\build\nightly.rev
+          git status
           git add .\build\demo.nuspec
+          git status
           git commit -m "Nightly Update"
+          git status
       
       - name: Push
         if: success()
