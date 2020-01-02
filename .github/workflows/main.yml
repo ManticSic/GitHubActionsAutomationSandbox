@@ -1,18 +1,42 @@
-name: Do Something That Needs Scheduled
+name: Build Nightly
 
 on:
   repository_dispatch:
   push:
-    types: do-something
+    types: build-nightly
   schedule:
-    - cron:  '*/30 * * * *'
+    - cron:  '*/60 * * * *'
 
 jobs:
   build:
-    name: Run Some Scheduled Thing
+    name: Run nightly build
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
+        
+      - name: Precondition
+        run: .\build\precodition.ps1
 
-      - name: Do Something
-        run: .\script.ps1
+      - name: Build
+        if: success()
+        run: .\build\build.ps1
+      
+      - name: Pack
+        if: success()
+        run: .\build\pack.ps1
+      
+      - name: Tag
+        if: success()
+        run: .\build\tag.ps1
+
+      - name: Update nightly-rev
+        if: success()
+        run: .\build\update-nightly-rev.ps1
+      
+      - name: Increment Version
+        if: success()
+        run: .\build\increment-version.ps1
+      
+      - name: Push
+        if: success()
+        run: .\build\git-push.ps1
