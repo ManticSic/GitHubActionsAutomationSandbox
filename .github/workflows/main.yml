@@ -17,6 +17,40 @@ jobs:
           ref: 'master'
       
       - name: Checkout master
-      - run: git checkout master
+        run: git checkout master
         
+      - name: Precondition
+        run: .\build\precodition.ps1
+
+      - name: Build
+        if: success()
+        run: .\build\build.ps1
       
+      - name: Pack
+        if: success()
+        run: .\build\pack.ps1
+      
+      - name: Tag
+        if: success()
+        run: .\build\tag.ps1
+
+      - name: Update nightly-rev
+        if: success()
+        run: .\build\update-nightly-rev.ps1
+      
+      - name: Increment Version
+        if: success()
+        run: .\build\increment-version.ps1
+
+      - name: Commit
+        if: success()
+        run: |
+          git add .\build\nightly.rev
+          git add .\build\demo.nuspec
+          git commit -m "Nightly Update"
+      
+      - name: Push
+        if: success()
+        run: |
+          git push origin master
+          git push --follow-tags
