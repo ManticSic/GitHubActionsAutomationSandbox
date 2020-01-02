@@ -50,6 +50,8 @@ jobs:
           author_email: 'actions@github.com'
           commit_message: 'Nightly Update'
           path: '.'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Push
         if: success()
