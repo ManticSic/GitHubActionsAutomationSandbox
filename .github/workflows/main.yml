@@ -50,4 +50,6 @@ jobs:
           git commit -a -m "Commit Message" --author="GitHub Actions<actions@github.com>"
           
       - name: Git Push
-        run: echo "Hello World"
+        run: |
+          git status
+          git push origin master
