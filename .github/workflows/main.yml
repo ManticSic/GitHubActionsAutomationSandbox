@@ -47,4 +47,4 @@ jobs:
         run: |
           git config user.email actions@github.com
           git config user.name "GitHub Actions"
-        git commit -a -m "Commit Message" --author="GitHub Actions<actions@github.com>"
+          git commit -a -m "Commit Message" --author="GitHub Actions<actions@github.com>"
