@@ -30,9 +30,9 @@ jobs:
         if: success()
         run: .\build\pack.ps1
       
-      #- name: Tag
-      #  if: success()
-      #  run: .\build\tag.ps1
+      - name: Tag
+        if: success()
+        run: .\build\tag.ps1
 
       - name: Update nightly-rev
         if: success()
@@ -48,3 +48,8 @@ jobs:
           git config user.email actions@github.com
           git config user.name "GitHub Actions"
           git commit -a -m "Commit Message" --author="GitHub Actions<actions@github.com>"
+          
+      - name: Git Push
+        run: |
+          git push
+          git push --follow-tags
