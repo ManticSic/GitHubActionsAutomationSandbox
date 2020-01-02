@@ -44,4 +44,4 @@ jobs:
 
       - name: Add & Commit
         if: success()
-        run: git commit -a -m "Commit Message" -author="GitHub Actions<actions@github.com>"
+        run: git commit -a -m "Commit Message" --author="GitHub Actions<actions@github.com>"
