@@ -4,8 +4,6 @@ on:
   repository_dispatch:
   push:
     types: build-nightly
-  schedule:
-    - cron:  '*/60 * * * *'
 
 jobs:
   build:
