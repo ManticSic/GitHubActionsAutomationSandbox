@@ -1,0 +1,23 @@
+name: Conditional
+
+on:
+  repository_dispatch:
+  push:
+    types: Conditional
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Failed
+      run: exit 1
+    
+    - name: On success
+      if: success()
+      run:  echo "SUCCESS"
+    
+    - name: On failure
+      if: failure()
+      run: echo "FAILURE"
