@@ -2,7 +2,6 @@ name: Conditional
 
 on:
   repository_dispatch:
-  push:
     types: Conditional
 
 jobs:
